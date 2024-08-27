@@ -1,13 +1,12 @@
-Home page for Nhat Viet Group
+Home page for Yougerist
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+bun install
+bun run dev
 ```
 
 ## Node JS Version
