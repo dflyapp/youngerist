@@ -36,6 +36,12 @@ export default function Footer() {
         <p className="text-gray9 text-center">
           © <b>2022 Youngerist</b> - Vì sự tự tin cho vẻ đẹp của bạn
         </p>
+        <p className='text-center'>
+          Đồng sáng lập:
+          <a className='underline ml-2' target="_blank" href="https://penguin.vn/">
+            penguin.vn
+          </a>
+        </p>
       </div>
     </footer>
   )
