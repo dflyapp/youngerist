@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/image"
 import Post from 'components/Post'
 import Header from 'components/Header'
 import Footer from 'components/Footer'

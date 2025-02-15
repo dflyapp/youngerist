@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/image"
 import Post from 'components/Post'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -16,7 +16,7 @@ import HeroBlog from 'assets/img/HeroBlog.jpg'
 
 export default function Blog({ posts }: any) {
   return (
-    <div>
+    (<div>
       <Head>
         <title>Youngerist Blogs</title>
         <meta
@@ -25,7 +25,6 @@ export default function Blog({ posts }: any) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <div className={styles.cover}>
         <div className="container mx-auto">
           <Header />
@@ -37,14 +36,18 @@ export default function Blog({ posts }: any) {
               </h4>
             </div>
             <div className="w-full md:w-1/2 px-8 md:px-0">
-              <Image src={HeroBlog} alt="tree" />
+              <Image
+                src={HeroBlog}
+                alt="tree"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
           </div>
         </div>
       </div>
-
       <h1 className="text-dark text-4xl text-center mt-24">Bài viết</h1>
-
       <div className="container mx-auto my-24">
         <div className="flex flex-wrap">
           {posts.map((post: any, index: any) => (
@@ -52,11 +55,10 @@ export default function Blog({ posts }: any) {
           ))}
         </div>
       </div>
-
       {/* footer */}
       <Footer />
-    </div>
-  )
+    </div>)
+  );
 }
 
 export async function getStaticProps() {

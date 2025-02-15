@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/image"
 import { scroller } from 'react-scroll'
 import { useRouter } from 'next/router'
 
@@ -35,14 +35,20 @@ export default function Header() {
 
   function Button1() {
     return (
-      <button
+      (<button
         className="flex items-center px-8 py-3 rounded-lg border border-deepblue bg-yellow5 hover:border-white"
         onClick={() => goTo('contact')}
       >
         <span className="mr-2">MUA SỈ</span>
-        <Image src={IconArrow} alt="arrow" />
-      </button>
-    )
+        <Image
+          src={IconArrow}
+          alt="arrow"
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
+      </button>)
+    );
   }
 
   function RenderMenu({ classnames }) {
@@ -62,11 +68,17 @@ export default function Header() {
   }
 
   return (
-    <header className={styles.wrapper}>
+    (<header className={styles.wrapper}>
       <div className="flex justify-between items-center">
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <div className="w-3/4 lg:w-auto cursor-pointer">
-            <Image src={LogoNvg} alt="nvg" />
+            <Image
+              src={LogoNvg}
+              alt="nvg"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </Link>
 
@@ -82,12 +94,17 @@ export default function Header() {
         <nav className="block lg:hidden">
           <ul className="flex items-center text-white">
             <li className="cursor-pointer" onClick={() => setShowNav(true)}>
-              <Image src={IconHambuger} alt="menu" />
+              <Image
+                src={IconHambuger}
+                alt="menu"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </li>
           </ul>
         </nav>
       </div>
-
       {showNav && (
         <div className="fixed h-full w-full">
           <div
@@ -97,7 +114,13 @@ export default function Header() {
           <div className="fixed h-full bg-white right-0 top-0">
             <div className="flex justify-end pt-5 pr-6">
               <button onClick={() => setShowNav(false)}>
-                <Image src={IconClose} alt="close" />
+                <Image
+                  src={IconClose}
+                  alt="close"
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </button>
             </div>
             <ul className={styles.mobileheader}>
@@ -114,6 +137,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
-  )
+    </header>)
+  );
 }

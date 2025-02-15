@@ -3,8 +3,7 @@ import Link from 'next/link'
 
 export default function SanPham({ item }) {
   return (
-    // eslint-disable-next-line @next/next/link-passhref
-    <Link href={`/san-pham/${item.slug}`}>
+    (<Link href={`/san-pham/${item.slug}`} legacyBehavior>
       <div className="w-full md:w-1/2 lg:w-1/3 p-4 cursor-pointer">
         <img src={item.frontmatter.cover_image} alt="" />
 
@@ -15,6 +14,6 @@ export default function SanPham({ item }) {
         <h4 className="mt-4">{item.frontmatter.title}</h4>
         <p className="mt-4 text-accent">{item.frontmatter.excerpt}</p>
       </div>
-    </Link>
-  )
+    </Link>)
+  );
 }

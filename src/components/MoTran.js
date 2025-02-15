@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import { useRouter } from 'next/router'
 
 import Button from './common/Button'
@@ -10,11 +10,18 @@ export default function Footer() {
   const router = useRouter()
 
   return (
-    <section className={styles.impact}>
+    (<section className={styles.impact}>
       <div className="container mx-auto">
         <div className="flex flex-wrap-reverse items-center">
           <div className="w-full lg:w-1/2 px-4">
-            <Image placeholder="blur" src={Motran} alt="mo tran" />
+            <Image
+              placeholder="blur"
+              src={Motran}
+              alt="mo tran"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
           <div className="w-full lg:w-1/2 px-4">
             <h1 className="text-right text-dark">MỠ TRĂN</h1>
@@ -48,6 +55,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </section>
-  )
+    </section>)
+  );
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import { useRouter } from 'next/router'
 
 import Button from './common/Button'
@@ -8,11 +8,18 @@ export default function Combo() {
   const router = useRouter()
 
   return (
-    <section className="py-48 px-0 lg:px-12">
+    (<section className="py-48 px-0 lg:px-12">
       <div className="container mx-auto">
         <div className="flex flex-wrap-reverse items-center">
           <div className="w-full lg:w-1/2 px-4">
-            <Image placeholder="blur" src={NoiNungImg} alt="mo tran" />
+            <Image
+              placeholder="blur"
+              src={NoiNungImg}
+              alt="mo tran"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
           <div className="w-full lg:w-1/2 px-4">
             <h1 className="text-right text-dark uppercase">
@@ -49,6 +56,6 @@ export default function Combo() {
           </div>
         </div>
       </div>
-    </section>
-  )
+    </section>)
+  );
 }

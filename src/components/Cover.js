@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 
 import MoreDetail from './common/MoreDetail'
 
@@ -12,7 +12,7 @@ import styles from './Cover.module.css'
 
 export default function Cover() {
   return (
-    <div className={styles.wrapperbg}>
+    (<div className={styles.wrapperbg}>
       <div className="mx-auto">
         <div className={styles.wrapper}>
           {/* more details */}
@@ -28,14 +28,27 @@ export default function Cover() {
           {/* right cover */}
           <div className={styles.maskrightwrapper}>
             <div className="hidden md:block">
-              <Image placeholder="blur" src={BgCoverRight} alt="office" />
+              <Image
+                placeholder="blur"
+                src={BgCoverRight}
+                alt="office"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
           </div>
 
           {/* content */}
           <div className="container mx-auto z-20 px-4 lg:px-0">
             <div className="pt-8 pr-4">
-              <Image src={IconQuote} alt="quote" />
+              <Image
+                src={IconQuote}
+                alt="quote"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <label className="pl-2 text-white text-xl lg:text-xl">
                 Youngerist - Vì sự tự tin cho vẻ đẹp của bạn
               </label>
@@ -56,15 +69,33 @@ export default function Cover() {
               <label className="mt-2 sm:mt-0 bg-deepblue text-white text-sm badge">
                 Beauty
               </label>
-              <Image src={IconMultiply} alt="multi" />
+              <Image
+                src={IconMultiply}
+                alt="multi"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <label className="mt-2 sm:mt-0 bg-deepblue text-white text-sm badge">
                 Care
               </label>
-              <Image src={IconMultiply} alt="multi" />
+              <Image
+                src={IconMultiply}
+                alt="multi"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <label className="mt-2 sm:mt-0 bg-deepblue text-white text-sm badge">
                 Advice
               </label>
-              <Image src={IconEqual} alt="equal" />
+              <Image
+                src={IconEqual}
+                alt="equal"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <label className="mt-2 sm:mt-0 bg-yellow5 text-white text-sm badge">
                 Unique Impact
               </label>
@@ -72,6 +103,6 @@ export default function Cover() {
           </div>
         </div>
       </div>
-    </div>
-  )
+    </div>)
+  );
 }

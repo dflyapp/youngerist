@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import { useRouter } from 'next/router'
 
 import Button from './common/Button'
@@ -9,7 +9,7 @@ export default function WaxCoconut() {
   const router = useRouter()
 
   return (
-    <div className="bg-primarydark py-24">
+    (<div className="bg-primarydark py-24">
       <section className="container mx-auto">
         <div className="flex flex-wrap items-center py-12">
           <div className="w-full lg:w-1/2 px-4">
@@ -45,10 +45,17 @@ export default function WaxCoconut() {
             </div>
           </div>
           <div className="w-full lg:w-1/2 px-4 mt-12 lg:mt-0">
-            <Image placeholder="blur" src={Wax} alt="wax" />
+            <Image
+              placeholder="blur"
+              src={Wax}
+              alt="wax"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </div>
       </section>
-    </div>
-  )
+    </div>)
+  );
 }

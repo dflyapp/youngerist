@@ -3,7 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from "next/image"
 import SanPhamItem from 'components/SanPham'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
