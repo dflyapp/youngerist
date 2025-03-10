@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@sentry/nextjs": "^8",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.45.2",
     "better-auth": "^1.2.3",
     "gray-matter": "^4.0.3",
     "marked": "^2.1.3",

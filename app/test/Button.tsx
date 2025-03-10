@@ -5,22 +5,17 @@ import { authClient } from '../../src/lib/client'
 
 export default function Button() {
   useEffect(() => {
-    console.log(JSON.stringify(process.env))
-  }, [])
+    console.log(
+      'global.secrets?.apiKey',
+      global.secrets?.apiKey
+    )
+  }, [global.secrets?.apiKey])
 
   return (
     <>
       <p>
         process env NEXT_PUBLIC_SUPABASE_URL{' '}
         {process.env.NEXT_PUBLIC_SUPABASE_URL}
-      </p>
-      <p>
-        process env NEXT_PUBLIC_SUPABASE_URL2{' '}
-        {process.env.NEXT_PUBLIC_SUPABASE_URL2}
-      </p>
-      <p>
-        process env BETTER_AUTH_SECRET{' '}
-        {process.env.BETTER_AUTH_SECRET}
       </p>
       <button
         onClick={async () => {
