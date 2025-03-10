@@ -1,16 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
 import { authClient } from '../../src/lib/client'
 
 export default function Button() {
-  useEffect(() => {
-    console.log(
-      'global.secrets?.apiKey',
-      global.secrets?.apiKey
-    )
-  }, [global.secrets?.apiKey])
-
   return (
     <>
       <p>
