@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from "next/image"
+import Image from 'next/image'
 import Post from 'components/Post'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -12,11 +12,13 @@ import Footer from 'components/Footer'
 import styles from '../styles/Blog.module.css'
 import { sortByDate } from '../utils'
 
+import { authClient } from '../lib/client'
+
 import HeroBlog from 'assets/img/HeroBlog.jpg'
 
 export default function Blog({ posts }: any) {
   return (
-    (<div>
+    <div>
       <Head>
         <title>Youngerist Blogs</title>
         <meta
@@ -25,12 +27,41 @@ export default function Blog({ posts }: any) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <div className={styles.cover}>
         <div className="container mx-auto">
           <Header />
           <div className="flex flex-wrap pt-24">
             <div className="w-full md:w-1/2 px-8 md:px-0">
               <h3>Vì sự tự tin cho vẻ đẹp của bạn</h3>
+              <button
+                onClick={async () => {
+                  const { data, error } = await authClient.signUp.email(
+                    {
+                      email: 'duongital@gmail.com', // user email address
+                      password: 'thanhtraTRA123!', // user password -> min 8 characters by default
+                      name: 'Duong', // user display name
+                      image: '', // user image url (optional)
+                      callbackURL: '/', // a url to redirect to after the user verifies their email (optional)
+                    },
+                    {
+                      onRequest: (ctx) => {
+                        //show loading
+                      },
+                      onSuccess: (ctx) => {
+                        //redirect to the dashboard or sign in page
+                      },
+                      onError: (ctx) => {
+                        // display the error message
+                        alert(ctx.error.message)
+                      },
+                    }
+                  )
+                  console.log({ data, error })
+                }}
+              >
+                Register
+              </button>
               <h4 className="text-accent my-4">
                 Chuyên trang blog của chúng tôi
               </h4>
@@ -40,9 +71,10 @@ export default function Blog({ posts }: any) {
                 src={HeroBlog}
                 alt="tree"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
+              />
             </div>
           </div>
         </div>
@@ -57,8 +89,8 @@ export default function Blog({ posts }: any) {
       </div>
       {/* footer */}
       <Footer />
-    </div>)
-  );
+    </div>
+  )
 }
 
 export async function getStaticProps() {
