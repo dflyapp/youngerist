@@ -1,3 +1,4 @@
+import { testLogging } from './action'
 import Button from './Button'
 
 export default async function Page() {
@@ -17,6 +18,7 @@ export default async function Page() {
       <h1>Page</h1>
 
       <Button />
+      <button onClick={testLogging}>Test Server Action</button>
     </div>
   )
 }
