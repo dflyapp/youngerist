@@ -24,6 +24,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Create production env file for runtime
+RUN echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" >> .env.production
+RUN echo "BETTER_AUTH_SECRET=$BETTER_AUTH_SECRET" >> .env.production
+RUN echo "BETTER_AUTH_URL=$BETTER_AUTH_URL" >> .env.production
+RUN echo "DATABASE_URL=$DATABASE_URL" >> .env.production
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
