@@ -9,6 +9,10 @@ export default function Button() {
         process env NEXT_PUBLIC_SUPABASE_URL{' '}
         {process.env.NEXT_PUBLIC_SUPABASE_URL}
       </p>
+      <p>
+        process env NEXT_PUBLIC_SUPABASE_URL2{' '}
+        {process.env.NEXT_PUBLIC_SUPABASE_URL2}
+      </p>
       <button
         onClick={async () => {
           const { data, error } = await authClient.signUp.email(
