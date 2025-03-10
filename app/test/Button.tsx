@@ -1,8 +1,20 @@
 'use client'
 
+import { useEffect } from 'react'
 import { authClient } from '../../src/lib/client'
+import { createClient } from 'utils/supabase/client'
 
 export default function Button() {
+  useEffect(() => {
+    const getData = async () => {
+      const supabase = await createClient()
+      const { data: instruments } = await supabase.from('user').select()
+      console.log(instruments)
+    }
+
+    getData()
+  }, [])
+  
   return (
     <>
       <p>
