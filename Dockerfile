@@ -25,11 +25,11 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Create production env file for runtime
-RUN echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" >> .env.production
-RUN echo "NEXT_PUBLIC_SUPABASE_URL2=$NEXT_PUBLIC_SUPABASE_URL2" >> .env.production
-RUN echo "BETTER_AUTH_SECRET=$OS_BETTAUTH_SECRET" >> .env.production
-RUN echo "BETTER_AUTH_URL=$BETTER_AUTH_URL" >> .env.production
-RUN echo "DATABASE_URL=$DATABASE_URL" >> .env.production
+RUN echo "NEXT_PUBLIC_SUPABASE_URL=$OS_NEXT_PUBLIC_SUPABASE_URL" >> .env
+RUN echo "NEXT_PUBLIC_SUPABASE_URL2=$OS_NEXT_PUBLIC_SUPABASE_URL2" >> .env
+RUN echo "BETTER_AUTH_SECRET=$OS_BETTAUTH_SECRET" >> .env
+RUN echo "BETTER_AUTH_URL=$OS_BETTER_AUTH_URL" >> .env
+RUN echo "DATABASE_URL=$OS_DATABASE_URL" >> .env
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
@@ -50,6 +50,13 @@ WORKDIR /app
 ENV NODE_ENV=production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED=1
+
+# Create production env file for runtime
+RUN echo "NEXT_PUBLIC_SUPABASE_URL=$OS_NEXT_PUBLIC_SUPABASE_URL" >> .env
+RUN echo "NEXT_PUBLIC_SUPABASE_URL2=$OS_NEXT_PUBLIC_SUPABASE_URL2" >> .env
+RUN echo "BETTER_AUTH_SECRET=$OS_BETTAUTH_SECRET" >> .env
+RUN echo "BETTER_AUTH_URL=$OS_BETTER_AUTH_URL" >> .env
+RUN echo "DATABASE_URL=$OS_DATABASE_URL" >> .env
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
