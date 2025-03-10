@@ -5,9 +5,6 @@ import { authClient } from '../../src/lib/client'
 export default function Button() {
   return (
     <>
-      <p>process env BETTER_AUTH_SECRET {process.env.BETTER_AUTH_SECRET}</p>
-      <p>process env DATABASE_URL {process.env.DATABASE_URL}</p>
-      <p>process env BETTER_AUTH_URL {process.env.BETTER_AUTH_URL}</p>
       <p>
         process env NEXT_PUBLIC_SUPABASE_URL{' '}
         {process.env.NEXT_PUBLIC_SUPABASE_URL}
