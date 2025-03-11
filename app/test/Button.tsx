@@ -9,7 +9,7 @@ export default function Button() {
     const getData = async () => {
       const supabase = await createClient()
       const { data: instruments } = await supabase.from('user').select()
-      console.log(instruments)
+      console.log("using supabase client: ", instruments)
     }
 
     getData()

@@ -28,8 +28,12 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED=1
-ENV NEXT_PUBLIC_SUPABASE_URL=https://faflwejmxidgyvzjwrui.supabase.co
-ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhZmx3ZWpteGlkZ3l2emp3cnVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0OTUyNzMsImV4cCI6MjA1NzA3MTI3M30.t_B-aRyJjnSl8ZhV8yLOR_l6Z9g7Sm_aR2qi_XdI0N0
+
+# Public environment variables for Next.js
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ENV NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
 
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
